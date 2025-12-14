@@ -1,0 +1,24 @@
+틀린 풀이
+해시 이용도 아니고 ,, 이중 for문이라 시간초과 나기 쉽고 ,, 동명이인일 케이스를 고려 못함
+
+class Solution {
+    public String solution(String[] participant, String[] completion) {
+        int[] isCompletion = new int[participant.length];
+
+        for (int i = 0; i < participant.length; i++) {
+            for (int j = 0; j < completion.length; j++) {
+                if (participant[i].equals(completion[j])) {
+                    isCompletion[i]++;
+                }
+            }
+        }
+
+        for (int i = 0; i < isCompletion.length; i++) {
+            if (isCompletion[i] == 0) {
+                return participant[i];
+            }
+        }
+        return "";
+
+    }
+}

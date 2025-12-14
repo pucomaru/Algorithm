@@ -1,0 +1,27 @@
+해시를 이용해서 풀이
+
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    public String solution(String[] participant, String[] completion) {
+
+        Map<String, Integer> who = new HashMap<>();
+
+        for (String name : participant) {
+            who.put(name, who.getOrDefault(name, 0) + 1);
+        }
+
+        for (String name : completion) {
+            who.put(name, who.get(name) - 1);
+        }
+
+        for (Map.Entry<String, Integer> e : who.entrySet()) {
+            if (e.getValue() > 0) {
+                return e.getKey();
+            }
+        }
+
+        return "";
+    }
+}
