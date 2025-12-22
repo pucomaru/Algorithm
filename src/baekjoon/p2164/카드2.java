@@ -33,6 +33,5 @@ public class 카드2 {
 
         System.out.println(cardList.peek());
 
-
     }
 }
